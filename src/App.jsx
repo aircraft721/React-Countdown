@@ -3,10 +3,26 @@ import './app.css';
 
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            deadline: 'October 23, 2017'
+        }
+    }
+
+
+    changeDeadline(){
+        this.setState({
+            deadline: 'November 25, 2017'
+        })
+    }
+
+
+
     render(){
         return(
             <div className='app'>
-                <div className='app-title'>Countown to October 23, 2017</div>
+                <div className='app-title'>Countdown to {this.state.deadline}</div>
                 <div>
                     <div className='clock-days'>14 days</div>
                     <div className='clock-hours'>30 hours</div>
@@ -15,7 +31,7 @@ class App extends Component {
                 </div>
                 <div>
                     <input type="text" placeholder='new date'/>
-                    <button>Submit</button>
+                    <button onClick={()=>this.changeDeadline()}>Submit</button>
                 </div>
                
             </div>
